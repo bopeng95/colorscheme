@@ -4,7 +4,7 @@ import Flex from 'components/Flex';
 import Text from 'components/Text';
 import Icon from 'components/Icon';
 
-const Header = props => {
+const Header = (props) => {
   const { text } = props;
   const repo = 'https://github.com/bopeng95/colorscheme';
   return (
@@ -17,4 +17,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

@@ -12,7 +12,7 @@ export const Wrapper = styled.span`
     boxed,
   }) => css`
     ${theme.text[type].style};
-    border-bottom: 2px solid ${theme.colors.pink};
+    border-bottom: ${underline && `2px solid ${theme.colors.pink}`};
     margin-bottom: ${gutter && '18px'};
     color: ${theme.colors[color]};
     cursor: ${asButton && 'pointer'};
