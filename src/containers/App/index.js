@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
+import Text from 'components/Text';
 import Container from 'components/Container';
-import Flex from 'components/Flex';
-import ColorBox from 'components/ColorBox';
+import ColorContainer from 'components/ColorContainer';
 
 import Header from './Header';
+import { initialColors } from './fixtures';
 
 library.add(fab);
-const title = 'alacritty palette';
 
 const App = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [colors, setColors] = useState(initialColors);
+
+  useEffect(() => {
+    const local = localStorage.getItem('colors');
+    if (local) setColors(JSON.parse(local));
+  }, []);
+
+  useEffect(() => {
+    const str = JSON.stringify(colors);
+    localStorage.setItem('colors', str);
+  }, [colors]);
+
+  const reset = () => setColors(initialColors);
+
+  const handleColor = (color) => ({ hex }) =>
+    setColors((state) => ({ ...state, [color]: hex }));
 
   return (
     <Container>
-      <Header text={title} />
-      <Flex justify="space-between" align="center">
-        <ColorBox
-          isOpen={open}
-          handleOpen={handleOpen}
-          handleClose={handleClose}
-        />
-      </Flex>
+      <Header text="alacritty palette" reset={reset} />
+      <ColorContainer colors={colors} handleColor={handleColor} />
     </Container>
   );
 };

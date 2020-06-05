@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Wrapper = styled.div`
   padding: 4px;
   border-radius: 2px;
+  margin-top: 4px;
   ${({ theme, size }) => css`
     width: ${size}px;
     height: ${size}px;

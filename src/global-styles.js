@@ -3,12 +3,14 @@ import { createGlobalStyle } from 'styled-components';
 const mainFont = 'Rubik';
 const codeFont = 'Fira Code';
 
+export const display = {
+  desktop: 650,
+  tablet: 600,
+  phone: 480,
+};
+
 export const theme = {
-  display: {
-    desktop: 960,
-    tablet: 600,
-    phone: 480,
-  },
+  display,
   colors: {
     pink: '#ff8396',
     black: '#262626',
@@ -29,6 +31,7 @@ export const theme = {
       style: {
         fontSize: '1.1rem',
         fontFamily: mainFont,
+        marginBottom: '10px',
       },
     },
     body: {
@@ -59,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
   /* rubik-300 - latin */
   @font-face {
     font-family: 'Rubik';
-    font-style: normal;
+    font-style: light;
     font-weight: 300;
     src: local('Rubik Light'), local('Rubik-Light'),
          url('../fonts/rubik-v9-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
@@ -77,7 +80,7 @@ export const GlobalStyle = createGlobalStyle`
   /* rubik-700 - latin */
   @font-face {
     font-family: 'Rubik';
-    font-style: normal;
+    font-style: bold;
     font-weight: 700;
     src: local('Rubik Bold'), local('Rubik-Bold'),
          url('../fonts/rubik-v9-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
@@ -95,7 +98,7 @@ export const GlobalStyle = createGlobalStyle`
   /* fira-code-700 - latin */
   @font-face {
     font-family: 'Fira Code';
-    font-style: normal;
+    font-style: bold;
     font-weight: 700;
     src: local(''),
          url('../fonts/fira-code-v8-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */

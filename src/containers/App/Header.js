@@ -5,14 +5,19 @@ import Text from 'components/Text';
 import Icon from 'components/Icon';
 
 const Header = (props) => {
-  const { text } = props;
+  const { text, reset } = props;
   const repo = 'https://github.com/bopeng95/colorscheme';
   return (
     <Flex justify="space-between" align="center" gutter>
       <Text type="title" color="white" boxed underline>
         {text}
       </Text>
-      <Icon icon={['fab', 'github-alt']} link={repo} />
+      <Flex>
+        <Text color="white" asButton type="subtitle" hoverColor onClick={reset}>
+          reset
+        </Text>
+        <Icon icon={['fab', 'github-alt']} link={repo} />
+      </Flex>
     </Flex>
   );
 };
